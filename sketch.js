@@ -32,7 +32,7 @@ function draw() {
     // scale(zoom);
     // translate(-blobs[i].pos.x, -blobs[i].pos.y);
 
-    blobs[i].show();
+    // blobs[i].show();
     // blobs[i].update();
     // blobs[i].constrain();
     println(i);
