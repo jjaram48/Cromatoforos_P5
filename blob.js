@@ -33,7 +33,8 @@ function Blob(x, y, r) {
   }
 
   this.show = function() {
-    // fill(255);
+    fill(255,255,0);
+    noStroke();
     // ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
 
     push();
@@ -41,6 +42,10 @@ function Blob(x, y, r) {
     beginShape();
     var xoff = 0;
     for (var a = 0; a < TWO_PI; a += 0.1) {
+      
+      //moving effect
+      // var offset = map(noise(xoff + yoff), 0, 1, -25, 25);
+      
       var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
       var r = this.r + offset;
       var x = r * cos(a);

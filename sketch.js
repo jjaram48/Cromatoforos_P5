@@ -1,5 +1,4 @@
 var blob;
-
 var blobs = [];
 var zoom = 1;
 
@@ -9,7 +8,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(109, 206, 242);
 
   translate(width/2, height/2, 2);
   var newzoom = 128 / blob.r;
