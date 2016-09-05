@@ -27,9 +27,17 @@ function Blob(x, y, r) {
     }
   }
 
+  // this.constrain = function() {
+  //   blob.pos.x = constrain(blob.pos.x, -width / 4, width / 4);
+  //   blob.pos.y = constrain(blob.pos.y, -height / 4, height / 4);
+  // }
+  
   this.constrain = function() {
-    blob.pos.x = constrain(blob.pos.x, -width / 4, width / 4);
-    blob.pos.y = constrain(blob.pos.y, -height / 4, height / 4);
+    for (var i = 0; i < blobs.length; i++) {
+    blobs[i].pos.x = constrain(blobs[i].pos.x, -width / 4, width / 4);
+    blobs[i].pos.y = constrain(blobs[i].pos.y, -height / 4, height / 4);
+  }
+    
   }
 
   this.show = function() {
