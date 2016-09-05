@@ -19,5 +19,5 @@ function draw() {
 
   blob.show();
   blob.update();
-  blob.comstrain();
+  blob.constrain();
 }
