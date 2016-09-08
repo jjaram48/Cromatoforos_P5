@@ -56,24 +56,32 @@ function display(){
     // noStroke();
     // ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
     
-    
     // THESE ARE SHAPES
     
     fill(255, 0, 150, 100);
     noStroke();
-    
+    var xoff = 0;
+
     push();
     translate(circles[i].x, circles[i].y);
     beginShape();
 
     for (var a = 0; a < TWO_PI; a += 0.1) {
-      var r_ = circles[i].r;
-      var x_ = circles[i].r * cos(a);
-      var y_ = circles[i].r * sin(a);
+      
+      var offset = map(noise(xoff, yoff), 0, 1, -radius_difference, radius_difference);
+
+      var r_ = circles[i].r + offset;
+      var x_ = r_ * cos(a);
+      var y_ = r_ * sin(a);
+
       vertex(x_, y_);
+
+      xoff += 0.05;
 
     }
     endShape();
     pop();
+
+
   }
 }
