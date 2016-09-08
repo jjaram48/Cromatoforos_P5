@@ -1,77 +1,49 @@
-function calc_circles (blob_r_min_t1, blob_r_min_t2) {
-   
+function calc_circles(blob_r_min_t1, blob_r_min_t2) {
+
   var blob_r_min_in = blob_r_min_t1;
   var blob_r_max_in = blob_r_min_t2;
   // var overlapping = false;
   var protection = 0;
-  
+
   // blob = new Blob(0,0,200);
-  
-while(circles.length < blobs_number){
-  // for (var i = 0; i < 25; i++) {
+
+  while (circles.length < blobs_number) {
+    // for (var i = 0; i < 25; i++) {
     var circle = {
       x: random(width),
       y: random(height),
-      r: random(blob_r_min_in,blob_r_max_in)
+      r: random(blob_r_min_in, blob_r_max_in)
     }
 
-  var overlapping = false;
-  
-  for (var j = 0; j < circles.length; j++) {
-    var other = circles[j];
-    var d = dist(circle.x, circle.y, other.x, other.y);
+    var overlapping = false;
 
-    if (d < circle.r + other.r + separation) {
-      //THEY ARE OVERLAPPING OR EITHER TOO CLOSE!!!
-      overlapping = true;
+    for (var j = 0; j < circles.length; j++) {
+      var other = circles[j];
+      var d = dist(circle.x, circle.y, other.x, other.y);
+
+      if (d < circle.r + other.r + separation) {
+        //THEY ARE OVERLAPPING OR EITHER TOO CLOSE!!!
+        overlapping = true;
+        break;
+      }
+    }
+
+    if (!overlapping) {
+      circles.push(circle);
+    }
+
+    protection++;
+
+    if (protection > 10000) {
+      println("could not fit them all, only " + circles.length);
       break;
     }
-  }
 
-  if (!overlapping) {
-    circles.push(circle);
-  }
-  
-  protection++;
-  
-  if (protection > 10000){
-    println("could not fit them all, only " + circles.length);
-    break;
-  }
-  
-  if (circles.length >= blobs_number) {
+    if (circles.length >= blobs_number) {
       println("They're all in!");
-  }
-  
-  // println(protection);
-  
-}
-
-  for (var i = 0; i < circles.length; i++) {
-    // THESE ARE PLAIN ELLIPSES
-    // fill(255, 0, 150, 100);
-    // noStroke();
-    // ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
-    
-    
-    // THESE ARE SHAPES
-    
-    fill(255, 0, 150, 100);
-    noStroke();
-    
-    push();
-    translate(circles[i].x, circles[i].y);
-    beginShape();
-
-    for (var a = 0; a < TWO_PI; a += 0.1) {
-      var r_ = circles[i].r;
-      var x_ = circles[i].r * cos(a);
-      var y_ = circles[i].r * sin(a);
-      vertex(x_, y_);
-
     }
-    endShape();
-    pop();
- 
+
+    // println(protection);
+
   }
 }
