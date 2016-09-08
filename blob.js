@@ -1,7 +1,6 @@
 function Blob(x, y, r) {
   this.pos = createVector(x, y);
   this.r = r;
-  this.vel = createVector(0, 0);
 
   var yoff = 0;
 
