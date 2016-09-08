@@ -42,8 +42,10 @@ while(circles.length < 255){
 }
 
   for (var i = 0; i < circles.length; i++) {
+    
     fill(255, 0, 150, 100);
     noStroke();
     ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
+    
   }
 }
