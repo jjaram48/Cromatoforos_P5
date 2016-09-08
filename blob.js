@@ -4,9 +4,6 @@ function Blob(x, y, r) {
 
   var yoff = 0;
 
-  this.update = function() {
-  }
-
   this.show = function() {
     fill(255, 0, 150, 100);
     noStroke();
