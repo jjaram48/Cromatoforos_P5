@@ -21,7 +21,7 @@ function Blob(x, y, r, xoff, yoff) {
       //moving effect
       // var offset = map(noise(xoff + yoff), 0, 1, -25, 25);
 
-      var offset = map(noise(xoff, yoff), 0, 1, -25, 25);
+      var offset = map(noise(xoff, yoff), 0, 1, -radius_difference, radius_difference);
       var r = this.r + offset;
       var x = r * cos(a);
       var y = r * sin(a);
