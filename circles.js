@@ -50,38 +50,30 @@ function calc_circles(blob_r_min_t1, blob_r_min_t2) {
 
 function display() {
 
-    for (var i = 0; i < circles.length; i++) {
-        // THESE ARE PLAIN ELLIPSES
-        // fill(255, 0, 150, 100);
-        // noStroke();
-        // ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
+  for (var i = 0; i < blobs.length; i++) {
+    fill(255, 0, 150, 100);
+    noStroke();
+    // ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
 
-        // THESE ARE SHAPES
+    push();
+    translate(blobs[i].pos.x, blobs[i].pos.y);
+    beginShape();
+    blobs[i].xoff = 0;
+    for (var a = 0; a < TWO_PI; a += 0.1) {
 
-        fill(255, 0, 150, 100);
-        noStroke();
-        var xoff = 0;
+      //moving effect
+      // var offset = map(noise(xoff + yoff), 0, 1, -25, 25);
 
-        push();
-        translate(circles[i].x, circles[i].y);
-        beginShape();
-
-        for (var a = 0; a < TWO_PI; a += 0.1) {
-
-            var offset = map(noise(xoff, yoff), 0, 1, -radius_difference, radius_difference);
-
-            var r_ = circles[i].r + offset;
-            var x_ = r_ * cos(a);
-            var y_ = r_ * sin(a);
-
-            vertex(x_, y_);
-
-            xoff += 0.05;
-
-        }
-        endShape();
-        pop();
-
-
+      var offset = map(noise(blobs[i].xoff, yoff), 0, 1, -radius_difference, radius_difference);
+      var r = blobs[i].r + offset;
+      var x = r * cos(a);
+      var y = r * sin(a);
+      vertex(x, y);
+      blobs[i].xoff += 0.025;
+      // ellipse(x, y, 4, 4);
     }
+    endShape();
+    pop();
+  }
+  yoff += 0.01;
 }

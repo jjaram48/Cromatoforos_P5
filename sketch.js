@@ -14,7 +14,7 @@ function setup() {
   calc_circles(blob_r_min, blob_r_max);
 
   for (var i = 0; i < blobs_number; i++) {
-    blobs[i] = new Blob(circles[i].x, circles[i].y, circles[i].r);
+    blobs[i] = new Blob(circles[i].x, circles[i].y, circles[i].r, 0);
   }
 
 }
@@ -25,7 +25,7 @@ function draw() {
   // display();
   yoff += 0.01;
 
-  for (var i = 0; i < circles.length; i++) {
-  blobs[i].show();
-  }
+  // for (var i = 0; i < circles.length; i++) {
+  display();
+  // }
 }
