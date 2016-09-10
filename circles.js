@@ -5,8 +5,6 @@ function calc_circles(blob_r_min_t1, blob_r_min_t2) {
     // var overlapping = false;
     var protection = 0;
 
-    // blob = new Blob(0,0,200);
-
     while (circles.length < blobs_number) {
         // for (var i = 0; i < 25; i++) {
         var circle = {
@@ -42,9 +40,6 @@ function calc_circles(blob_r_min_t1, blob_r_min_t2) {
         if (circles.length >= blobs_number) {
             println("They're all in!");
         }
-
-        // println(protection);
-
     }
 }
 
@@ -54,11 +49,11 @@ function display() {
     fill(255, 0, 150, 100);
     noStroke();
     // ellipse(this.pos.x, this.pos.y, this.r * 2, this.r * 2);
-
+    blobs[i].xoff = xoff[i];
     push();
     translate(blobs[i].pos.x, blobs[i].pos.y);
     beginShape();
-    blobs[i].xoff = 0;
+
     for (var a = 0; a < TWO_PI; a += 0.1) {
 
       //moving effect
