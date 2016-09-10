@@ -1,4 +1,4 @@
-function Blob(x, y, r) {
+function Blob(x, y, r, xoff, yoff) {
   this.pos = createVector(x, y);
   this.r = r;
 

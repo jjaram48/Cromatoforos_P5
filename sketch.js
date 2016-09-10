@@ -10,24 +10,22 @@ var radius_difference = 4;
 
 function setup() {
   createCanvas(600, 600);
-  
+
   calc_circles(blob_r_min, blob_r_max);
 
-  // for (var i = 0; i < blobs_number; i++) {
-  //   blobs[i] = new Blob(random(width), random(height), blob_r);
-  // }
+  for (var i = 0; i < blobs_number; i++) {
+    blobs[i] = new Blob(circles[i].x, circles[i].y, circles[i].r);
+  }
 
 }
 
 function draw() {
   background(255);
 
-  display();
+  // display();
   yoff += 0.01;
 
-  // for (var i = 0; i < blobs.length; i++) {
-
-  // blobs[i].show();
-  // blobs[i].update();
-  // }
+  for (var i = 0; i < circles.length; i++) {
+  blobs[i].show();
+  }
 }
